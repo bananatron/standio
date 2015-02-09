@@ -28,16 +28,8 @@
        <div class="timestamp">
        <% if (current_time < 13){ %> <%= current_time %> <% if (current_time == 12){ %>PM<%}else {%>AM<%} %> 
        <% } else {%> <%= current_time-12 %> PM <%}%></div>
-       
-       
-       
-       
+
        <div class="booked_by"><%= day_array[i] %></div>
-       
-       
-       
-       
-       
        
        <div class="actions"><a class="write-link action-links" href="/write/<%=current_time%>/_user_/_date_">BOOK</a><br>
        <a class="action-links cancel-link" href="/cancel/<%=current_time%>/_user_/_date_">CANCEL</a></div>

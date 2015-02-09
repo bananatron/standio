@@ -49,6 +49,7 @@ pagesController.write = function() {
   date = this.param('date'); //Booking date
   
   db(date).push({ hour: h, booked_by: user});
+  db.save();
   this.redirect('/');
 }; //Probably would be better via post or some other method for db writing and form submission
 
