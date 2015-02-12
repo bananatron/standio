@@ -3,7 +3,7 @@
   <head>
     <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
-    
+    <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
     <title>STAND.IO</title>
     <link rel="stylesheet" href="/stylesheets/screen.css" />
     <link rel="stylesheet" href="/stylesheets/sweet-alert.css" />
@@ -29,10 +29,14 @@
        <% if (current_time < 13){ %> <%= current_time %> <% if (current_time == 12){ %>PM<%}else {%>AM<%} %> 
        <% } else {%> <%= current_time-12 %> PM <%}%></div>
 
-       <div class="booked_by"><%= day_array[i] %></div>
+       <div class="booked_by">OPEN</div>
        
-       <div class="actions"><a class="write-link action-links" href="/write/<%=current_time%>/_user_/_date_">BOOK</a><br>
-       <a class="action-links cancel-link" href="/cancel/<%=current_time%>/_user_/_date_">CANCEL</a></div>
+       
+       <div class="actions">
+       <!--<a class="write-link action-links" href="/write/<%=current_time%>/_user_/_date_">BOOK</a><br>-->
+       <a class="write-link action-links" href="#">BOOK</a><br>
+       <!--<a class="action-links cancel-link" href="/cancel/<%=current_time%>/_user_/_date_">CANCEL</a></div>-->
+       <a class="action-links cancel-link" href="#">CANCEL</a></div>
 
      </div>
     <% } %>

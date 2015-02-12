@@ -5,6 +5,10 @@ var locomotive = require('locomotive')
 low = require('lowdb');
 db = low('db.json');
 
+//Firebase Setup
+//var fb = new Firebase('https://scorching-inferno-1799.firebaseio.com/');
+//myDataRef.set({name: name, text: text});
+
 var pagesController = new Controller();
 
 //pages#main (GET)
@@ -49,6 +53,7 @@ pagesController.write = function() {
   date = this.param('date'); //Booking date
   
   db(date).push({ hour: h, booked_by: user});
+  
   db.save();
   this.redirect('/');
 }; //Probably would be better via post or some other method for db writing and form submission
