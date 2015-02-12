@@ -31,7 +31,11 @@ $( document ).ready(function() {
         if (form_user == ""){ 
           sweetAlert("Hey there buddy", "You need to put your name in.", "error"); 
           link.preventDefault();
-        } else {
+        } else if (form_user.length > 15){
+          sweetAlert("Don't do it Rob.");
+        }
+        else
+        {
         
           //this.match('write/:hour/:user/:date' (Date in format of 10_10_1988)
           var a_href = ($(this).attr('href'));
@@ -91,6 +95,10 @@ $( document ).ready(function() {
           ref.on("value", function(snapshot) {
             ref.child('name').remove();
           });
+          
+
+          
+          
           $(this).parent().parent().children( ".booked_by" ).text("OPEN");
           
           
@@ -109,5 +117,4 @@ $( document ).ready(function() {
           
         }
       });
-
 });
