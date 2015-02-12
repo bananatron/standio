@@ -5,10 +5,9 @@ $( document ).ready(function() {
   
       fb.on("value", function(data) {
         var name = data.val() ? data.val().name : "";
-        
-        
+
         $( ".booked_by" ).each(function( index ) {
-          div_hour = $(this).parent().children( ".timestamp" ).text().replace(/\s/g, '').substring(0,1);
+          div_hour = $(this).parent().children( ".timestamp" ).text().replace(/\s/g, '').substring(0,2);
           ref = new Firebase("https://scorching-inferno-1799.firebaseio.com/" + form_date + "/" + div_hour);
 
           ref.on("value", function(snapshot) {
@@ -37,7 +36,7 @@ $( document ).ready(function() {
           //this.match('write/:hour/:user/:date' (Date in format of 10_10_1988)
           var a_href = ($(this).attr('href'));
           //var form_date = $("#form_date").text().replace( /([/])/g, "_" );
-          var current_hour = $(this).parent().parent().children( ".timestamp" ).text().replace(/\s/g, '').substring(0,1);
+          var current_hour = $(this).parent().parent().children( ".timestamp" ).text().replace(/\s/g, '').substring(0,2);
           //var new_href = a_href.replace( "_user_", form_user ) ;
           //var new_href = new_href.replace( "_date_", form_date ) ;
           
@@ -84,15 +83,13 @@ $( document ).ready(function() {
           sweetAlert("Whoah nelly!", "You can't cancel an open slot.", "error"); 
           link.preventDefault();
         } else {
-          var current_hour = $(this).parent().parent().children( ".timestamp" ).text().replace(/\s/g, '').substring(0,1);
-          div_hour = $(this).parent().children( ".timestamp" ).text().replace(/\s/g, '').substring(0,1);
+          var current_hour = $(this).parent().parent().children( ".timestamp" ).text().replace(/\s/g, '').substring(0,2);
+          div_hour = $(this).parent().children( ".timestamp" ).text().replace(/\s/g, '').substring(0,2);
           
           ref = new Firebase("https://scorching-inferno-1799.firebaseio.com/" + form_date + "/" + current_hour);
 
           ref.on("value", function(snapshot) {
             ref.child('name').remove();
-            $(this).parent().parent().children( ".booked_by" ).text("OPEN");
-            
           });
           $(this).parent().parent().children( ".booked_by" ).text("OPEN");
           
